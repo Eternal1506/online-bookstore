@@ -5,7 +5,7 @@ const app = express();
 
 app.get('/', (req, res) => {
     console.log(req);
-    return res.status(234).json({ message: 'Welcome to the Bookstore' });
+    return res.status(234).send('Welcome to the Bookstore' );
 });
 
 app.listen(PORT, () => {
