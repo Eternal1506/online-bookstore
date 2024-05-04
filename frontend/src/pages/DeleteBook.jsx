@@ -10,6 +10,7 @@ const DeleteBook = () => {
   const { id } = useParams();
 
   const handleDeleteBook = () => {
+    // Define a function handleDeleteBook
     setLoading(true);
     axios
       .delete(`http://localhost:5555/books/${id}`)
@@ -25,6 +26,7 @@ const DeleteBook = () => {
   };
 
   return (
+    // Return the JSX for the DeleteBook component
     <div className="p-4">
       <BackButton />
       <h1 className="text-3xl my-4">Delete Book</h1>

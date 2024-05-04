@@ -13,8 +13,9 @@ export const EditBook = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    // Define a useEffect hook
     setLoading(true);
-    axios
+    axios // Use axios to fetch the book with the given id
       .get(`http://localhost:5555/books/${id}`)
       .then((res) => {
         setTitle(res.data.title);
@@ -30,6 +31,7 @@ export const EditBook = () => {
   }, []);
 
   const handleEditBook = async () => {
+    // Define a function handleEditBook
     setLoading(true);
     try {
       await axios.put(`http://localhost:5555/books/${id}`, {
@@ -46,6 +48,7 @@ export const EditBook = () => {
     }
   };
   return (
+    // Return the JSX for the EditBook component
     <div className=" p-4">
       <BackButton />
       <h1 className="text-3xl my-4">Create Book</h1>

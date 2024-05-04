@@ -18,14 +18,14 @@ app.use(
     })
 );
 
-app.get('/', (req, res) => {
+app.get('/', (req, res) => { // Define a route handler for the default home page
     console.log(req);
     return res.status(234).send('Welcome to the Bookstore' );
 });
 
-app.use('/books', booksRoutes);
+app.use('/books', booksRoutes); // Use the booksRoutes for all routes starting with /books
 
-mongoose
+mongoose // Connect to MongoDB
     .connect(mongoDBURL)
     .then(() => {
         console.log('App Connected to MongoDB');

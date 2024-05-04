@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export const CreateBook = () => {
+  //
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [publishYear, setPublishYear] = useState("");
@@ -12,6 +13,7 @@ export const CreateBook = () => {
   const navigate = useNavigate();
 
   const handlesaveBook = async () => {
+    // Define a function handlesaveBook
     setLoading(true);
     try {
       await axios.post("http://localhost:5555/books", {
@@ -28,6 +30,7 @@ export const CreateBook = () => {
     }
   };
   return (
+    // Return the JSX for the CreateBook component
     <div className=" p-4">
       <BackButton />
       <h1 className="text-3xl my-4">Create Book</h1>
