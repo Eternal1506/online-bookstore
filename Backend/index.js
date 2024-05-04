@@ -1,13 +1,20 @@
 import express from 'express';
 import { PORT, mongoDBURL } from './config.js';
+import { Book } from './models/bookModel.js';
 import mongoose from 'mongoose';
+import booksRoutes from './routes/booksRoutes.js';
 
 const app = express();
+
+//Middleware to parse the request body as JSON
+app.use(express.json());
 
 app.get('/', (req, res) => {
     console.log(req);
     return res.status(234).send('Welcome to the Bookstore' );
 });
+
+app.use('/books', booksRoutes);
 
 mongoose
     .connect(mongoDBURL)
