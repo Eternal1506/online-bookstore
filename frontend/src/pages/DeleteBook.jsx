@@ -3,30 +3,32 @@ import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSnackbar } from "notistack";
 
 const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleDeleteBook = () => {
-    // Define a function handleDeleteBook
     setLoading(true);
     axios
-      .delete(`https://online-bookstore-backend.onrender.com/books/${id}`)
+      .delete(`https://online-bookstore-backend.onrender.com/books${id}`)
       .then(() => {
         setLoading(false);
+        enqueueSnackbar("Book Deleted successfully", { variant: "success" });
         navigate("/");
       })
       .catch((error) => {
         setLoading(false);
-        alert("Failed to delete book");
+        // alert('An error happened. Please Chack console');
+        enqueueSnackbar("Error", { variant: "error" });
         console.log(error);
       });
   };
 
   return (
-    // Return the JSX for the DeleteBook component
     <div className="p-4">
       <BackButton />
       <h1 className="text-3xl my-4">Delete Book</h1>
