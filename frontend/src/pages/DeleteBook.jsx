@@ -13,7 +13,7 @@ const DeleteBook = () => {
     // Define a function handleDeleteBook
     setLoading(true);
     axios
-      .delete(`http://localhost:5555/books/${id}`)
+      .delete(`https://online-bookstore-backend.onrender.com/books/${id}`)
       .then(() => {
         setLoading(false);
         navigate("/");

@@ -16,7 +16,7 @@ export const EditBook = () => {
     // Define a useEffect hook
     setLoading(true);
     axios // Use axios to fetch the book with the given id
-      .get(`http://localhost:5555/books/${id}`)
+      .get(`https://online-bookstore-backend.onrender.com/books/${id}`)
       .then((res) => {
         setTitle(res.data.title);
         setAuthor(res.data.author);
