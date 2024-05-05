@@ -12,6 +12,7 @@ app.use(express.json());
 // Middleware for CORS
 app.use(
     cors({
+    // origin: ['https://main.d2yqflachgvalr.amplifyapp.com/', 'http://localhost:5173/', 'https://online-bookstore-58ls.onrender.com/'],
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
