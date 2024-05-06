@@ -1,5 +1,9 @@
 import mongoose from 'mongoose';
 
+
+let currentDate = new Date();
+let currentYear = currentDate.getFullYear();
+
 const bookSchema = new mongoose.Schema(
     {
         title: {
@@ -12,7 +16,7 @@ const bookSchema = new mongoose.Schema(
         },
 
         publishYear: {
-            type: Number,
+            type: Number > 0 && Number < currentYear,
             required: true,
         },
         // price: {
