@@ -16,7 +16,7 @@ const bookSchema = new mongoose.Schema(
         },
 
         publishYear: {
-            type: Number > 0 && Number < currentYear,
+            type: Number,
             required: true,
         },
         // price: {
