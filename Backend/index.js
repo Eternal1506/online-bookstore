@@ -1,5 +1,5 @@
 import express from 'express';
-import { PORT, mongoDBURL } from './config.js';
+// import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import booksRoutes from './routes/booksRoutes.js';
 import cors from 'cors';
@@ -27,11 +27,11 @@ app.get('/', (req, res) => { // Define a route handler for the default home page
 app.use('/books', booksRoutes); // Use the booksRoutes for all routes starting with /books
 
 mongoose // Connect to MongoDB
-    .connect(mongoDBURL)
+    .connect(process.env.mongoDBURL)
     .then(() => {
         console.log('App Connected to MongoDB');
-        app.listen(PORT, () => {
-            console.log(`App listening on port ${PORT}!`);
+        app.listen(process.env.PORT, () => {
+            console.log(`App listening on port ${process.env.PORT}!`);
           });
     })
     .catch((err) => {
